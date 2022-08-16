@@ -1,3 +1,4 @@
 class HomesController < ApplicationController
-  root to: "homes#top"
+   def top
+   end
 end
