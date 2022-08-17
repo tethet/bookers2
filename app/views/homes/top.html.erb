@@ -1,6 +1,6 @@
- <!-->この画面にログイン画面へのリンクと
+ <!--この画面にログイン画面へのリンクと
  サインアップ画面へのリンクを
- 作りたい</!-->
+ 作りたい-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,5 +15,18 @@
   </head>
   
   <body>
-   <main></main>
+   <main>
+    <h2>welcome to <strong>Bookers</strong> !!</h2>
+    <h4>In <strong>Bookers</strong></h4>
+    <p>you can share and exchange your opinions , inpressions , and emotions<br>
+                                                            about various books!</p>
+    
+    <li>
+        <%= link_to "Log in", new_user_session_path %>
+    </li>
+    
+    <li>
+      <%= link_to "Sing up", new_user_registration_path %>
+    </li>
+   </main>
   </body>
