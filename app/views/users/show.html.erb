@@ -1,3 +1,25 @@
-<!--userの画面を表示させる。-->
+<!--userの画面を表示させる。 IDの自分の投稿画面-->
+<div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3>name</h3>
+  <h3><%= @user.name %></h3>
+  <h3><%= @user.introduction %></h3>
+  
+  <li>
+    <%= link_to "画像", edit_user_path %>
+   </li>
+</div>
+<h1>New book</h1>
+<%= form_with model:@book do |f| %>
+<p>Title</p>
+  <%= f.text_field :title %>
+
+<p>Opinion</p>
+  <%= f.text_area :body %>
+  
+ <%= f.submit 'Create Book' %>
+<% end %>
+  
+
 
 
