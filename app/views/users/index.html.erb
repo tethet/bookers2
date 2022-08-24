@@ -1,1 +1,22 @@
-<!-->他のuserの作品に飛べるshowを作成する一覧</!-->
+
+<%= render 'books/book', user: @user, book: @book %>
+
+
+
+<h2>Users</h2>
+<% @users.each do |user| %>
+
+<div>
+  <h3>title</h3>
+  <%= image_tag user.get_profile_image(100, 100) %> 
+  
+  <h3>Name</h3>
+  <%= user.name %>
+  
+   <li>
+      <%= link_to "show", user_path(user.id) %>
+   </li>
+  
+</div>
+<% end %>
+

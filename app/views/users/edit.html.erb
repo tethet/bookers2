@@ -1,11 +1,20 @@
-<h1>User info</h1>
+<% if @new_book.errors.any? %>
+ <%= @new_book.errors.count %>errors prohibited this obj from being saved
+ <ul>
+   <% @new_book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+   <% end %>
+ </ul>
+ <% end %>
 
- <%= form_with model: @user, url:user_path(@user.id)  do |f| %>
+<%= render 'books/book', user: @user, book: @book %>
+
+<%= form_with model: @user, url:user_path(@user.id)  do |f| %>
  
- <h4>Name</h4>
- <%= f.text_field :name %>
+ <h4>Title</h4>
+ <%= f.text_field :title %>
  
- <h4>Image</h4>
+ <h4>Body</h4>
  <%= f.file_field :profile_image, accept: "image/*" %>
  
   <h4>Introduction</h4>

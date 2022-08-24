@@ -1,0 +1,35 @@
+<% if book.errors.any? %>
+ <%= book.errors.count %>errors prohibited this obj from being saved
+ <ul>
+   <% book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+   <% end %>
+ </ul>
+ <% end %>
+
+<h2>User info</h2>
+<div>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <h3>name</h3>
+  <h3><%= user.name %></h3>
+  <h3><%= user.introduction %></h3>
+  
+   <li>
+    <%= link_to "画像", edit_user_path(user) %>
+   </li>
+</div>
+
+<%= form_with model:book,local:true do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control book_title' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :opinion %>
+    <%= f.text_area :body, class: 'form-control book_body' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+  
+<% end %>

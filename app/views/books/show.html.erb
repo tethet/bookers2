@@ -1,0 +1,18 @@
+<%= render 'book', user: @user, book: @book %>
+
+<h2>Book detail</h2>
+<div>
+  <%= image_tag @book_show.user.get_profile_image(100, 100) %> 
+  <%= @book_show.title %>
+  
+  <%= @book_show.body %>
+
+  <% if @book.user == current_user %>
+  <%= link_to "Edit", edit_book_path(@book_show) %>
+  <% end %>
+  
+  <% if @book.user == current_user %>
+  <%= link_to "Destroy", book_path(@book_show), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  <% end %>
+  
+</div>
