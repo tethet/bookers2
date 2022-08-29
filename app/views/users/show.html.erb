@@ -1,11 +1,38 @@
-<!--userの画面を表示させる。 IDの自分の投稿画面-->
-<%= render 'books/book', user: @user, book: @new_book %>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/book', user: @user, book: @new_book %>
+    </div>
+    
+    <div class="col-md-8 offset-md-1">
+       <h2 class="mt-3">book</h2>
+       <table class="table">
+         <% @book.each do |a| %>
+        <tr>
+          <th>
+           <%= link_to user_path(@user.id) do %>
+            <%= image_tag @user.get_profile_image(100, 100) %> 
+           <% end %>
+          </th>
+         
+          <th>
+           <%= link_to book_path(a) do %>
+            <%= a.title %>
+           <% end %>
+          </th>
+          <th>
+            <%= a.body %>
+          </th>
+        </tr>
+         
+       <% end %>
+     </table>
+       
 
-<h2>Books</h2>
-<% @book.each do |a| %>
-  <%= a.title %>
-  <%= a.body %>
-<% end %>
+    </div>
+    
+  </div>
+</div>
 
 
